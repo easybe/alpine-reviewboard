@@ -35,7 +35,6 @@ services:
   reviewboard:
     container_name: reviewboard
     image: easybe/alpine-reviewboard
-    hostname: $FQDN
     restart: always
     links:
       - mysql:db

@@ -9,7 +9,7 @@ if [ -e $RB_ROOT/conf/settings_local.py ]; then
 else
     rb-site install \
             --noinput \
-            --domain-name="$(hostname --fqdn)" \
+            --domain-name="${VIRTUAL_HOST:-localhost}" \
             --company="$RB_COMPANY" \
             --site-root=/ \
             --static-url=static/ \

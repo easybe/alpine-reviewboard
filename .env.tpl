@@ -5,4 +5,3 @@ RB_COMPANY="E Corp"
 RB_ADMIN_PASSWORD=p4ssw0rd
 RB_ADMIN_EMAIL=admin@e-corp-usa.com
 UWSGI_PROCESSES=10
-#FQDN=reviews.e-corp-usa.com
