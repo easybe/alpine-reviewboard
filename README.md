@@ -1,7 +1,5 @@
 # Review Board
 
-A [Review Board](https://www.reviewboard.org) Docker image based on Alpine Linux.
-
 Works with:
 
   * MySQL or PostgreSQL as a database
@@ -59,20 +57,20 @@ RB_COMPANY="E Corp"
 RB_ADMIN_PASSWORD=p4ssw0rd
 RB_ADMIN_EMAIL=admin@e-corp-usa.com
 UWSGI_PROCESSES=10
-#FQDN=reviews.e-corp-usa.com
 ```
 
+Start the containers:
 ```
-docker-compose up -d
+$ docker-compose up -d
 ```
 
 ## Environment variables
 
   * `DB_TYPE`
-    * The database server you want to use. `mysql` or `postgresql`
+    * The database server you want to use, `mysql` or `postgresql`
     * Default value: `mysql`
   * `DB_PORT`
-    * The port of database you want to use.
+    * The port of database you want to use
     * Default value: `3306`
   * `DB_NAME`
     * The database name you want to use
