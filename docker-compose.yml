@@ -20,8 +20,8 @@ services:
     restart: always
   reviewboard:
     container_name: reviewboard
+    image: easybe/alpine-reviewboard
     hostname: $FQDN
-    build: .
     restart: always
     links:
       - mysql:db
