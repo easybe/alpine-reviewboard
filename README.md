@@ -40,7 +40,7 @@ You can configure this images with some environment variables:
 * `RB_ADMIN`
     * The login admin for the Review Board instance
     * Default value: `admin`
-* `RB_PASSWORD`
+* `RB_ADMIN_PASSWORD`
     * The password of Review Board admin
     * Default value: `admin`
 * `RB_ADMIN_EMAIL`

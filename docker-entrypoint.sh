@@ -24,7 +24,7 @@ else
             --web-server-type=lighttpd \
             --web-server-port=8000 \
             --admin-user="$RB_ADMIN" \
-            --admin-password="$RB_PASSWORD" \
+            --admin-password="$RB_ADMIN_PASSWORD" \
             --admin-email="$RB_ADMIN_EMAIL" \
             $RB_ROOT
 

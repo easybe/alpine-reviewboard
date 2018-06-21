@@ -39,7 +39,7 @@ COPY docker-entrypoint.sh /docker-entrypoint.sh
 
 ENV RB_COMPANY="Example Inc." \
     RB_ADMIN=admin \
-    RB_PASSWORD=admin \
+    RB_ADMIN_PASSWORD=admin \
     RB_ADMIN_EMAIL=admin@example.com \
     DB_TYPE=mysql \
     DB_PORT=3306 \

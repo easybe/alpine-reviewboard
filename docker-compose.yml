@@ -30,7 +30,7 @@ services:
       - 8080:8000
     environment:
       - DB_PASSWORD
-      - RB_PASSWORD
+      - RB_ADMIN_PASSWORD
       - RB_ADMIN_EMAIL
       - UWSGI_PROCESSES
     volumes:
