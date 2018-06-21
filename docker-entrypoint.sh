@@ -35,6 +35,26 @@ else
           /var/www/reviewboard/logs \
           /var/www/reviewboard/tmp \
           /var/log/uwsgi
+
+    cat << EOF >> $RB_ROOT/conf/settings_local.py
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'console': {
+            'class': 'logging.StreamHandler',
+        },
+    },
+    'loggers': {
+        'djblets': {
+            'handlers': ['console'],
+            'level': 'INFO',
+        },
+    },
+}
+EOF
+
 fi
 
 exec su -s /bin/sh -c "uwsgi --ini /etc/reviewboard/uwsgi.ini" uwsgi
