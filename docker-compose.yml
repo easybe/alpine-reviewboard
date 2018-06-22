@@ -32,5 +32,6 @@ services:
       - RB_ADMIN_PASSWORD
       - RB_ADMIN_EMAIL
       - UWSGI_PROCESSES
+      - VIRTUAL_HOST
     volumes:
       - reviewboard:/var/www

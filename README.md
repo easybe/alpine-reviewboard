@@ -1,4 +1,4 @@
-# Review Board
+A [Review Board](https://www.reviewboard.org) Docker image based on Alpine Linux.
 
 Works with:
 
@@ -8,8 +8,8 @@ Works with:
 
 ## Example
 
-docker-compose.yml:
-```
+### docker-compose.yml:
+```yml
 version: '3'
 volumes:
   mysql:
@@ -44,12 +44,13 @@ services:
       - RB_ADMIN_PASSWORD
       - RB_ADMIN_EMAIL
       - UWSGI_PROCESSES
+      - VIRTUAL_HOST
     volumes:
       - reviewboard:/var/www
 ```
 
-.env:
-```
+### .env:
+```sh
 MYSQL_ROOT_PASSWORD=p4ssw0rd
 MYSQL_PASSWORD=p4ssw0rd
 DB_PASSWORD=p4ssw0rd
@@ -57,10 +58,11 @@ RB_COMPANY="E Corp"
 RB_ADMIN_PASSWORD=p4ssw0rd
 RB_ADMIN_EMAIL=admin@e-corp-usa.com
 UWSGI_PROCESSES=10
+#VIRTUAL_HOST=reviews.e-corp-usa.com
 ```
 
-Start the containers:
-```
+### Start the containers:
+```sh
 $ docker-compose up -d
 ```
 
@@ -68,31 +70,34 @@ $ docker-compose up -d
 
   * `DB_TYPE`
     * The database server you want to use, `mysql` or `postgresql`
-    * Default value: `mysql`
+    * Default: `mysql`
   * `DB_PORT`
     * The port of database you want to use
-    * Default value: `3306`
+    * Default: `3306`
   * `DB_NAME`
     * The database name you want to use
-    * Default value: `reviewboard`
+    * Default: `reviewboard`
   * `DB_USER`
     * The database user you want to use
-    * Default value: `reviewboard`
+    * Default: `reviewboard`
   * `DB_PASSWORD`
     * The password associated to your database user
-    * Default value: `reviewboard`
+    * Default: `reviewboard`
   * `RB_COMPANY`
     * Your company's name
-    * Default value: `Example Inc`
+    * Default: `Example Inc`
   * `RB_ADMIN`
     * The login admin for the Review Board instance
-    * Default value: `admin`
+    * Default: `admin`
   * `RB_ADMIN_PASSWORD`
     * The password of Review Board admin
-    * Default value: `admin`
+    * Default: `admin`
   * `RB_ADMIN_EMAIL`
     * The email of Review Board admin
-    * Default value: `admin@example.com`
+    * Default: `admin@example.com`
   * `UWSGI_PROCESSES`
     * The number of thread use by the web server
-    * Default value: `10`
+    * Default: `10`
+  * `VIRTUAL_HOST`
+    * The FQDN for Review Board
+    * Default: `localhost`
