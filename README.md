@@ -100,4 +100,4 @@ $ docker-compose up -d
     * Default: `10`
   * `VIRTUAL_HOST`
     * The FQDN for Review Board
-    * Default: `localhost`
+    * Default: `*` (insecure!)
