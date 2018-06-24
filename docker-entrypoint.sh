@@ -1,4 +1,5 @@
 #!/bin/sh
+set -e
 
 RB_ROOT=${RB_ROOT:-/var/www/reviewboard}
 
