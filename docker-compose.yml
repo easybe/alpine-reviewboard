@@ -21,6 +21,7 @@ services:
   reviewboard:
     container_name: reviewboard
     image: easybe/alpine-reviewboard
+    build: .
     restart: always
     links:
       - mysql:db
