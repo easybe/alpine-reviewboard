@@ -24,16 +24,29 @@ RUN apk add --no-cache --virtual .build-deps \
         python2-dev \
         apr-util-dev \
         subversion-dev \
-        openssl && \
+        openssl \
+        nodejs-npm \
+        gettext && \
     pip install --no-cache-dir \
         python-ldap \
         subvertpy \
         mercurial \
         bzr \
-        p4python && \
+        p4python \
+        rbintegrations \
+        Django==1.6.11 && \
+    git clone https://github.com/djblets/djblets.git /tmp/src/djblets && \
+    cd /tmp/src/djblets && \
+    git checkout release-1.0.x && \
+    python setup.py install_node_deps && \
+    pip install --no-cache-dir . && \
+    git clone https://github.com/easybe/reviewboard.git /tmp/src/reviewboard && \
+    cd /tmp/src/reviewboard && \
+    git checkout release-3.0.8+ && \
+    mv /tmp/src/djblets/node_modules . && \
+    pip install --no-cache-dir . && \
+    rm -rf /tmp/* && \
     apk del .build-deps
-
-RUN pip install ReviewBoard==3.0.8
 
 RUN wget -O /usr/local/bin/wait-for https://raw.githubusercontent.com/eficode/wait-for/master/wait-for && \
     chmod +x /usr/local/bin/wait-for
