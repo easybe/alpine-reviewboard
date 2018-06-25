@@ -21,6 +21,7 @@ RUN apk --no-cache add \
         apr-util-dev \
         subversion-dev && \
     pip install --no-cache-dir \
+        python-ldap \
         subvertpy && \
     apk del \
         gcc \
