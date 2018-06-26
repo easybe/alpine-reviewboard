@@ -6,6 +6,9 @@ Works with:
   * Subversion and Git SCM
   * Memcached for the cache server
 
+If you feel something is missing, please let us know on
+[GitHub](https://github.com/easybe/alpine-reviewboard/issues)!
+
 ## Example
 
 ### docker-compose.yml:
