@@ -3,6 +3,7 @@ FROM alpine:3.7
 RUN apk --no-cache add \
         uwsgi-python \
         uwsgi-http \
+        patch \
         git \
         subversion \
         py-pip \
