@@ -13,7 +13,8 @@ RUN apk --no-cache add \
         py-bcrypt \
         py-cryptography \
         py-mysqldb \
-        py-psycopg2
+        py-psycopg2 \
+        su-exec
 
 RUN apk --no-cache add \
         gcc \

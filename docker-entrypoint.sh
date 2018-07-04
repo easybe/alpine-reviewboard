@@ -58,4 +58,4 @@ EOF
 
 fi
 
-exec su -s /bin/sh -c "uwsgi --ini /etc/reviewboard/uwsgi.ini" uwsgi
+exec su-exec uwsgi uwsgi --ini /etc/reviewboard/uwsgi.ini
