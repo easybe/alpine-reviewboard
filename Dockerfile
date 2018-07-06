@@ -6,6 +6,7 @@ RUN apk --no-cache add \
         patch \
         git \
         subversion \
+        cvs \
         py-pip \
         py-pynacl \
         py-cffi \
@@ -18,19 +19,26 @@ RUN apk --no-cache add \
 
 RUN apk --no-cache add \
         gcc \
+        g++ \
         musl-dev \
         python2-dev \
         apr-util-dev \
-        subversion-dev && \
+        subversion-dev \
+        openssl && \
     pip install --no-cache-dir \
         python-ldap \
-        subvertpy && \
+        subvertpy \
+        mercurial \
+        bzr \
+        p4python && \
     apk del \
         gcc \
+        g++ \
         musl-dev \
         python2-dev \
         apr-util-dev \
-        subversion-dev
+        subversion-dev \
+        openssl
 
 RUN pip install ReviewBoard==3.0.7
 
