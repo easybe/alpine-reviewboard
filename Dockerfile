@@ -40,7 +40,7 @@ RUN apk --no-cache add \
         subversion-dev \
         openssl
 
-RUN pip install ReviewBoard==3.0.7
+RUN pip install ReviewBoard==3.0.8
 
 RUN wget -O /usr/local/bin/wait-for https://raw.githubusercontent.com/eficode/wait-for/master/wait-for && \
     chmod +x /usr/local/bin/wait-for
