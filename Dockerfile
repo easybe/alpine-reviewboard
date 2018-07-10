@@ -1,6 +1,6 @@
 FROM alpine:3.7
 
-RUN apk --no-cache add \
+RUN apk add --no-cache \
         uwsgi-python \
         uwsgi-http \
         patch \
@@ -17,7 +17,7 @@ RUN apk --no-cache add \
         py-psycopg2 \
         su-exec
 
-RUN apk --no-cache add \
+RUN apk add --no-cache --virtual .build-deps \
         gcc \
         g++ \
         musl-dev \
@@ -31,14 +31,7 @@ RUN apk --no-cache add \
         mercurial \
         bzr \
         p4python && \
-    apk del \
-        gcc \
-        g++ \
-        musl-dev \
-        python2-dev \
-        apr-util-dev \
-        subversion-dev \
-        openssl
+    apk del .build-deps
 
 RUN pip install ReviewBoard==3.0.8
 
