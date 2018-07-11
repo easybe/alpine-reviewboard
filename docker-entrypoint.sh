@@ -29,14 +29,6 @@ else
             --admin-email="$RB_ADMIN_EMAIL" \
             $RB_ROOT
 
-    chown -R uwsgi:uwsgi \
-          /var/www/reviewboard/data \
-          /var/www/reviewboard/htdocs/static \
-          /var/www/reviewboard/htdocs/media \
-          /var/www/reviewboard/logs \
-          /var/www/reviewboard/tmp \
-          /var/log/uwsgi
-
     cat << EOF >> $RB_ROOT/conf/settings_local.py
 
 LOGGING = {
@@ -57,5 +49,13 @@ LOGGING = {
 EOF
 
 fi
+
+chown -R uwsgi:uwsgi \
+    /var/www/reviewboard/data \
+    /var/www/reviewboard/htdocs/static \
+    /var/www/reviewboard/htdocs/media \
+    /var/www/reviewboard/logs \
+    /var/www/reviewboard/tmp \
+    /var/log/uwsgi
 
 exec su-exec uwsgi uwsgi --ini /etc/reviewboard/uwsgi.ini
