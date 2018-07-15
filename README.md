@@ -117,3 +117,12 @@ Running only certain tests:
 
     docker run --rm -v $REVIEWBOARD_SRC:/src easybe/alpine-reviewboard:dev test \
         reviewboard.reviews.tests.test_review
+
+Running management commands:
+
+    docker run --rm -v $REVIEWBOARD_SRC:/src easybe/alpine-reviewboard:dev \
+        manage --help
+
+Running a shell:
+
+    docker run --rm -v $REVIEWBOARD_SRC:/src easybe/alpine-reviewboard:dev
