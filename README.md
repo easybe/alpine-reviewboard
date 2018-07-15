@@ -1,12 +1,9 @@
-A [Review Board](https://www.reviewboard.org) Docker image based on Alpine Linux.
+# A state-of-the-art Review Board image
 
-Works with:
+A Docker image based on Alpine Linux for running the code review tool
+[Review Board](https://www.reviewboard.org).
 
-  * MySQL or PostgreSQL as a database
-  * Subversion and Git SCM
-  * Memcached for the cache server
-
-If you feel something is missing, please let us know on
+If you feel something is wrong with it, please let us know on
 [GitHub](https://github.com/easybe/alpine-reviewboard/issues)!
 
 ## Example
@@ -72,35 +69,51 @@ $ docker-compose up -d
 ## Environment variables
 
   * `DB_TYPE`
-    * The database server you want to use, `mysql` or `postgresql`
+    * The type of database to be used, `mysql` or `postgresql`
     * Default: `mysql`
   * `DB_PORT`
-    * The port of database you want to use
+    * The port for the database
     * Default: `3306`
   * `DB_NAME`
-    * The database name you want to use
+    * The name of the database
     * Default: `reviewboard`
   * `DB_USER`
-    * The database user you want to use
+    * The database user
     * Default: `reviewboard`
   * `DB_PASSWORD`
-    * The password associated to your database user
+    * The password associated to the database user
     * Default: `reviewboard`
   * `RB_COMPANY`
     * Your company's name
     * Default: `Example Inc`
   * `RB_ADMIN`
-    * The login admin for the Review Board instance
+    * The login name for the Review Board admin
     * Default: `admin`
   * `RB_ADMIN_PASSWORD`
-    * The password of Review Board admin
+    * The password for the Review Board admin
     * Default: `admin`
   * `RB_ADMIN_EMAIL`
-    * The email of Review Board admin
+    * The e-mail address for the Review Board admin
     * Default: `admin@example.com`
   * `UWSGI_PROCESSES`
-    * The number of thread use by the web server
+    * The number of thread to be used by the web server
     * Default: `10`
   * `VIRTUAL_HOST`
-    * The FQDN for Review Board
+    * The fully qualified domain name for Review Board
     * Default: `*` (insecure!)
+
+# Image for developing Review Board
+
+Running the dev server:
+
+    docker run --rm -v $REVIEWBOARD_SRC:/src -p 8080:8080 \
+        easybe/alpine-reviewboard:dev server
+
+Running all tests:
+
+    docker run --rm -v $REVIEWBOARD_SRC:/src easybe/alpine-reviewboard:dev test
+
+Running only certain tests:
+
+    docker run --rm -v $REVIEWBOARD_SRC:/src easybe/alpine-reviewboard:dev test \
+        reviewboard.reviews.tests.test_review
