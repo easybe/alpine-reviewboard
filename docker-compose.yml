@@ -27,7 +27,7 @@ services:
       - mysql:db
       - memcached
     ports:
-      - 8080:8000
+      - "8080:8000"
     environment:
       - DB_PASSWORD
       - RB_ADMIN_PASSWORD
