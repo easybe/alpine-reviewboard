@@ -10,12 +10,19 @@ if [ ! -f settings_local.py ]; then
         contrib/internal/prepare-dev.py | python
 fi
 
-if [ "$1" == "server" ]; then
-    shift
-    exec contrib/internal/devserver.py "$@"
-elif [ "$1" == "test" ]; then
-    shift
-    exec reviewboard/manage.py test -- "$@"
-else
-    exec ash
-fi
+case $1 in
+    server)
+        shift
+        exec contrib/internal/devserver.py "$@"
+        ;;
+    test)
+        shift
+        exec reviewboard/manage.py test -- "$@"
+        ;;
+    manage)
+        shift
+        exec reviewboard/manage.py "$@"
+        ;;
+    *)
+        exec ash
+esac
