@@ -8,7 +8,7 @@ latest=$(curl -s $url | jq -r '.releases | keys | last')
 echo "Current version: $current"
 echo "Latest version: $latest"
 
-[ ${latest//./} -le ${current//./} ] && exit
+[ "$latest" = "$(echo -e "$latest\n$current" | sort -V | head -n 1)" ] && exit
 
 sed -i "s/ReviewBoard==$current/ReviewBoard==$latest/" Dockerfile
 git commit -m "Update ReviewBoard to $latest" Dockerfile
