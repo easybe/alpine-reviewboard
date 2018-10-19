@@ -11,7 +11,8 @@ echo "Latest version: $latest"
 [ "$latest" = "$(echo -e "$latest\n$current" | sort -V | head -n 1)" ] && exit
 
 sed -i "s/ReviewBoard==$current/ReviewBoard==$latest/" Dockerfile
-git commit -m "Update ReviewBoard to $latest" Dockerfile
+sed -i "s/:$current/:$latest/" dev/Dockerfile
+git commit -a -m "Update ReviewBoard to $latest"
 
 url=$(git config remote.origin.url)
 git config remote.origin.url ${url/github.com/$GH_TOKEN@github.com}
