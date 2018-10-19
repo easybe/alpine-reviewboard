@@ -42,7 +42,7 @@ RUN apk add --no-cache --virtual .build-deps \
     pip install --no-cache-dir . && \
     git clone https://github.com/easybe/reviewboard.git /tmp/src/reviewboard && \
     cd /tmp/src/reviewboard && \
-    git checkout release-3.0.8+ && \
+    git checkout release-3.0.9+ && \
     mv /tmp/src/djblets/node_modules . && \
     pip install --no-cache-dir . && \
     rm -rf /tmp/* && \
