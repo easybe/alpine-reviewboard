@@ -48,6 +48,8 @@ RUN apk add --no-cache --virtual .build-deps \
     rm -rf /tmp/* && \
     apk del .build-deps
 
+RUN pip install --no-cache-dir hg+https://bitbucket.org/cheristi/pygments-main
+
 RUN wget -O /usr/local/bin/wait-for https://raw.githubusercontent.com/eficode/wait-for/master/wait-for && \
     chmod +x /usr/local/bin/wait-for
 
