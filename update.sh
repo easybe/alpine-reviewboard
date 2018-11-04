@@ -19,3 +19,8 @@ git config remote.origin.url ${url/github.com/$GH_TOKEN@github.com}
 git push origin HEAD:master
 git tag $latest
 git push origin $latest
+
+echo "Updated to: $latest" | heirloom-mailx -s "alpine-reviewboard" \
+    -r travis@easyb.ch -S smtp=smtp://smtp.gmail.com:587 -S smtp-use-starttls \
+    -S smtp-auth=login -S smtp-auth-user=travis@easyb.ch \
+    -S smtp-auth-password=$GMAIL_PW spam@easyb.ch

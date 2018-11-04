@@ -1,4 +1,9 @@
 language: generic
+before_install:
+  - sudo apt install -y heirloom-mailx
+addons:
+  apt:
+    update: true
 script:
   - ./update.sh
 env:
