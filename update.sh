@@ -3,7 +3,7 @@ set -ex
 
 current=$(grep -Po '(?<=ReviewBoard==)(.+)$' Dockerfile)
 url=https://pypi.org/pypi/ReviewBoard/json
-latest=$(curl -s $url | jq -r '.releases | keys | last')
+latest=$(curl -s $url | jq -r '.releases | keys[]' | sort -V | tail -n 1)
 
 echo "Current version: $current"
 echo "Latest version: $latest"
@@ -23,4 +23,4 @@ git push origin $latest
 echo "Updated to: $latest" | heirloom-mailx -s "alpine-reviewboard" \
     -r travis@easyb.ch -S smtp=smtp://smtp.gmail.com:587 -S smtp-use-starttls \
     -S smtp-auth=login -S smtp-auth-user=travis@easyb.ch \
-    -S smtp-auth-password=$GMAIL_PW spam@easyb.ch
+    -S smtp-auth-password=$SMTP_PW spam@easyb.ch
