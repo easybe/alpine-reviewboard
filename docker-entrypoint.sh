@@ -51,11 +51,11 @@ EOF
 fi
 
 chown -R uwsgi:uwsgi \
-    /var/www/reviewboard/data \
-    /var/www/reviewboard/htdocs/static \
-    /var/www/reviewboard/htdocs/media \
-    /var/www/reviewboard/logs \
-    /var/www/reviewboard/tmp \
+    $RB_ROOT/data \
+    $RB_ROOT/htdocs/static \
+    $RB_ROOT/htdocs/media \
+    $RB_ROOT/logs \
+    $RB_ROOT/tmp \
     /var/log/uwsgi
 
 exec su-exec uwsgi uwsgi --ini /etc/reviewboard/uwsgi.ini
