@@ -1,4 +1,4 @@
-FROM easybe/alpine-reviewboard:3.0.11
+FROM easybe/alpine-reviewboard:3.0.12
 
 RUN apk --no-cache add \
         nodejs-npm && \
