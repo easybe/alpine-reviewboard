@@ -33,7 +33,7 @@ RUN apk add --no-cache --virtual .build-deps \
         p4python && \
     apk del .build-deps
 
-RUN pip install ReviewBoard==3.0.12
+RUN pip install ReviewBoard==3.0.13
 
 RUN wget -O /usr/local/bin/wait-for https://raw.githubusercontent.com/eficode/wait-for/master/wait-for && \
     chmod +x /usr/local/bin/wait-for
