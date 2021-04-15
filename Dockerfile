@@ -11,7 +11,6 @@ RUN apk add --no-cache \
         py-pynacl \
         py-cffi \
         py-pillow \
-        py-bcrypt \
         py-cryptography \
         py-mysqldb \
         py-psycopg2 \
@@ -24,13 +23,15 @@ RUN apk add --no-cache --virtual .build-deps \
         python2-dev \
         apr-util-dev \
         subversion-dev \
+        libffi-dev \
         openssl && \
     pip install --no-cache-dir \
+        bcrypt \
         python-ldap \
         subvertpy \
         mercurial \
         bzr \
-        p4python && \
+        p4python==2018.2.1743033 && \
     apk del .build-deps
 
 RUN pip install ReviewBoard==3.0.21
